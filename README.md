@@ -2,27 +2,27 @@
 
 ## Python 2 和 Python 3 的区别
 ### 1.性能 
-> Py3.0运行 pystone benchmark的速度比Py2.5慢30%。Guido认为Py3.0有极大的优化空间，在字符串和整形操作上可以取得很好的优化结果。Py3.1性能比Py2.5慢15%，还有很大的提升空间。 
+Py3.0运行 pystone benchmark的速度比Py2.5慢30%。Guido认为Py3.0有极大的优化空间，在字符串和整形操作上可以取得很好的优化结果。Py3.1性能比Py2.5慢15%，还有很大的提升空间。 
 
 ### 2.编码 
-> Py3.X源码文件默认使用utf-8编码
+Py3.X源码文件默认使用utf-8编码
    
 ### 3. 语法 
-1  去除了<>，全部改用!= 
-2  去除``，全部改用repr() 
-3  关键词加入as 和with，还有True,False,None 
-4  整型除法返回浮点数，要得到整型结果，请使用// 
-5  加入nonlocal语句。使用noclocal x可以直接指派外围（非全局）变量 
-6  去除print语句，加入print()函数实现相同的功能。同样的还有 exec语句，已经改为exec()函数 
-7  改变了顺序操作符的行为，例如x<y，当x和y类型不匹配时抛出TypeError而不是返回随即的 bool值  
-8  输入函数改变了，删除了raw_input，用input代替
-9  去除元组参数解包。不能def(a, (b, c)):pass这样定义函数了 
-10  新式的8进制字变量，相应地修改了oct()函数。 
-11  增加了 2进制字面量和bin()函数 
-12  扩展的可迭代解包。在Py3.X 里，a, b, *rest = seq和 *rest, a = seq都是合法的，只要求两点：rest是list对象和seq是可迭代的。 
-13  新的super()，可以不再给super()传参数
-14  新的metaclass语法
-15  支持class decorator。
+1.  去除了<>，全部改用!= 
+2.  去除``，全部改用repr() 
+3.  关键词加入as 和with，还有True,False,None 
+4.  整型除法返回浮点数，要得到整型结果，请使用// 
+5.  加入nonlocal语句。使用noclocal x可以直接指派外围（非全局）变量 
+6.  去除print语句，加入print()函数实现相同的功能。同样的还有 exec语句，已经改为exec()函数 
+7.  改变了顺序操作符的行为，例如x<y，当x和y类型不匹配时抛出TypeError而不是返回随即的 bool值  
+8.  输入函数改变了，删除了raw_input，用input代替
+9.  去除元组参数解包。不能def(a, (b, c)):pass这样定义函数了 
+10.  新式的8进制字变量，相应地修改了oct()函数。 
+11.  增加了 2进制字面量和bin()函数 
+12.  扩展的可迭代解包。在Py3.X 里，a, b, *rest = seq和 *rest, a = seq都是合法的，只要求两点：rest是list对象和seq是可迭代的。 
+13.  新的super()，可以不再给super()传参数
+14.  新的metaclass语法
+15.  支持class decorator。
 
 ### 4. 字符串和字节串 
 > 1）现在字符串只有str一种类型，但它跟2.x版本的unicode几乎一样。
