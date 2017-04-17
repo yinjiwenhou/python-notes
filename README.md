@@ -1,13 +1,13 @@
 # python notes
 
-##Python 2 和 Python 3 的区别
-###1.性能 
+## Python 2 和 Python 3 的区别
+### 1.性能 
 >Py3.0运行 pystone benchmark的速度比Py2.5慢30%。Guido认为Py3.0有极大的优化空间，在字符串和整形操作上可以取得很好的优化结果。Py3.1性能比Py2.5慢15%，还有很大的提升空间。 
 
-###2.编码 
+### 2.编码 
 >Py3.X源码文件默认使用utf-8编码，这就使得以下代码是合法的： 
    
-###3. 语法 
+### 3. 语法 
 >1）去除了<>，全部改用!= 
 >2）去除``，全部改用repr() 
 >3）关键词加入as 和with，还有True,False,None 
@@ -24,11 +24,11 @@
 >14）新的metaclass语法
 >15）支持class decorator。
 
-###4. 字符串和字节串 
+### 4. 字符串和字节串 
 >1）现在字符串只有str一种类型，但它跟2.x版本的unicode几乎一样。
 >2）关于字节串，请参阅“数据类型”的第2条目
 
-###5.数据类型 
+### 5.数据类型 
 >1）Py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long 
 >2）新增了bytes类型，对应于2.X版本的八位串，定义一个bytes字面量的方法如下： 
     <pre><code> >>> b = b'china' 
@@ -43,20 +43,20 @@
     b'china' </code></pre>
 >3）dict的.keys()、.items 和.values()方法返回迭代器，而之前的iterkeys()等函数都被废弃。同时去掉的还有dict.has_key()，用 in替代它吧 
 
-###6.面向对象 
+### 6.面向对象 
 >1）引入抽象基类（Abstraact Base Classes，ABCs）。 
 >2）容器类和迭代器类被ABCs化，所以cellections模块里的类型比Py2.5多了很多。
 >3）迭代器的next()方法改名为__next__()，并增加内置函数next()，用以调用迭代器的__next__()方法 
 >4）增加了@abstractmethod和 @abstractproperty两个 decorator，编写抽象方法（属性）更加方便。 
 
-###7.异常 
+### 7.异常 
 >1）所以异常都从 BaseException继承，并删除了StardardError 
 >2）去除了异常类的序列行为和.message属性 
 >3）用 raise Exception(args)代替 raise Exception, args语法 
 >4）捕获异常的语法改变，引入了as关键字来标识异常实例，在Py2.5中： 
 >5）异常链，因为__context__在3.0a1版本中没有实现 
 
-###8.模块变动 
+### 8.模块变动 
 >1）移除了cPickle模块，可以使用pickle模块代替。最终我们将会有一个透明高效的模块。 
 >2）移除了imageop模块 
 >3）移除了 audiodev, Bastion, bsddb185, exceptions, linuxaudiodev, md5, MimeWriter, mimify, popen2,rexec, sets, sha, stringold, strop, sunaudiodev, timing和xmllib模块 
@@ -65,7 +65,7 @@
 >6）os.tmpnam()和os.tmpfile()函数被移动到tmpfile模块下 
 >7）tokenize模块现在使用bytes工作。主要的入口点不再是generate_tokens，而是 tokenize.tokenize() 
 
-###9.其它 
+### 9.其它 
 >1）xrange() 改名为range()，要想使用range()获得一个list，必须显式调用： 
     <pre><code> >>> list(range(10)) 
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] </code></pre>
