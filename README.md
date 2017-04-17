@@ -25,57 +25,57 @@ Py3.X源码文件默认使用utf-8编码
 15.  支持class decorator。
 
 ### 4. 字符串和字节串 
-> 1）现在字符串只有str一种类型，但它跟2.x版本的unicode几乎一样。
-> 2）关于字节串，请参阅“数据类型”的第2条目
+1.  现在字符串只有str一种类型，但它跟2.x版本的unicode几乎一样。
+2.  关于字节串，请参阅“数据类型”的第2条目
 
 ### 5.数据类型 
-> 1）Py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long 
-> 2）新增了bytes类型，对应于2.X版本的八位串，定义一个bytes字面量的方法如下： 
+1.  Py3.X去除了long类型，现在只有一种整型——int，但它的行为就像2.X版本的long 
+2.  新增了bytes类型，对应于2.X版本的八位串，定义一个bytes字面量的方法如下： 
     <pre><code> >>> b = b'china' 
     >>> type(b) 
     <type 'bytes'> </code></pre>
-> str对象和bytes对象可以使用.encode() (str -> bytes) or .decode() (bytes -> str)方法相互转化。 
+str对象和bytes对象可以使用.encode() (str -> bytes) or .decode() (bytes -> str)方法相互转化。 
     <pre><code> >>> s = b.decode() 
     >>> s 
     'china' 
     >>> b1 = s.encode() 
     >>> b1 
     b'china' </code></pre>
-> 3）dict的.keys()、.items 和.values()方法返回迭代器，而之前的iterkeys()等函数都被废弃。同时去掉的还有dict.has_key()，用 in替代它吧 
+3.  dict的.keys()、.items 和.values()方法返回迭代器，而之前的iterkeys()等函数都被废弃。同时去掉的还有dict.has_key()，用 in替代它吧 
 
 ### 6.面向对象 
-> 1）引入抽象基类（Abstraact Base Classes，ABCs）。 
-> 2）容器类和迭代器类被ABCs化，所以cellections模块里的类型比Py2.5多了很多。
-> 3）迭代器的next()方法改名为__next__()，并增加内置函数next()，用以调用迭代器的__next__()方法 
-> 4）增加了@abstractmethod和 @abstractproperty两个 decorator，编写抽象方法（属性）更加方便。 
+1.  引入抽象基类（Abstraact Base Classes，ABCs）。 
+2.  容器类和迭代器类被ABCs化，所以cellections模块里的类型比Py2.5多了很多。
+3.  迭代器的next()方法改名为__next__()，并增加内置函数next()，用以调用迭代器的__next__()方法 
+4.  增加了@abstractmethod和 @abstractproperty两个 decorator，编写抽象方法（属性）更加方便。 
 
 ### 7.异常 
-> 1）所以异常都从 BaseException继承，并删除了StardardError 
-> 2）去除了异常类的序列行为和.message属性 
-> 3）用 raise Exception(args)代替 raise Exception, args语法 
-> 4）捕获异常的语法改变，引入了as关键字来标识异常实例，在Py2.5中： 
-> 5）异常链，因为__context__在3.0a1版本中没有实现 
+1.  所以异常都从 BaseException继承，并删除了StardardError 
+2.  去除了异常类的序列行为和.message属性 
+3.  用 raise Exception(args)代替 raise Exception, args语法 
+4.  捕获异常的语法改变，引入了as关键字来标识异常实例，在Py2.5中： 
+5.  异常链，因为__context__在3.0a1版本中没有实现 
 
 ### 8.模块变动 
-> 1）移除了cPickle模块，可以使用pickle模块代替。最终我们将会有一个透明高效的模块。 
-> 2）移除了imageop模块 
-> 3）移除了 audiodev, Bastion, bsddb185, exceptions, linuxaudiodev, md5, MimeWriter, mimify, popen2,rexec, sets, sha, stringold, strop, sunaudiodev, timing和xmllib模块 
-> 4）移除了bsddb模块(单独发布，可以从http://www.jcea.es/programacion/pybsddb.htm获取) 
-> 5）移除了new模块 
-> 6）os.tmpnam()和os.tmpfile()函数被移动到tmpfile模块下 
-> 7）tokenize模块现在使用bytes工作。主要的入口点不再是generate_tokens，而是 tokenize.tokenize() 
+1.  移除了cPickle模块，可以使用pickle模块代替。最终我们将会有一个透明高效的模块。 
+2.  移除了imageop模块 
+3.  移除了 audiodev, Bastion, bsddb185, exceptions, linuxaudiodev, md5, MimeWriter, mimify, popen2,rexec, sets, sha, stringold, strop, sunaudiodev, timing和xmllib模块 
+4.  移除了bsddb模块(单独发布，可以从http://www.jcea.es/programacion/pybsddb.htm获取) 
+5.  移除了new模块 
+6.  os.tmpnam()和os.tmpfile()函数被移动到tmpfile模块下 
+7.  tokenize模块现在使用bytes工作。主要的入口点不再是generate_tokens，而是 tokenize.tokenize() 
 
 ### 9.其它 
-> 1）xrange() 改名为range()，要想使用range()获得一个list，必须显式调用： 
+1.  xrange() 改名为range()，要想使用range()获得一个list，必须显式调用： 
     <pre><code> >>> list(range(10)) 
     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] </code></pre>
-> 2）bytes对象不能hash，也不支持 b.lower()、b.strip()和b.split()方法，但对于后两者可以使用 b.strip(b’\n\t\r \f’)和b.split(b’ ‘)来达到相同目的 
-> 3）zip()、map()和filter()都返回迭代器。而apply()、 callable()、coerce()、 execfile()、reduce()和reload 
+2.  bytes对象不能hash，也不支持 b.lower()、b.strip()和b.split()方法，但对于后两者可以使用 b.strip(b’\n\t\r \f’)和b.split(b’ ‘)来达到相同目的 
+3.  zip()、map()和filter()都返回迭代器。而apply()、 callable()、coerce()、 execfile()、reduce()和reload 
 ()函数都被去除了.现在可以使用hasattr()来替换 callable(). hasattr()的语法如：hasattr(string, '__name__')
-> 4）string.letters和相关的.lowercase和.uppercase被去除，请改用string.ascii_letters 等 
-> 5）如果x < y的不能比较，抛出TypeError异常。2.x版本是返回伪随机布尔值的 
-> 6）__getslice__系列成员被废弃。a[i:j]根据上下文转换为a.__getitem__(slice(I, j))或 __setitem__和 
+4.  string.letters和相关的.lowercase和.uppercase被去除，请改用string.ascii_letters 等 
+5.  如果x < y的不能比较，抛出TypeError异常。2.x版本是返回伪随机布尔值的 
+6.  __getslice__系列成员被废弃。a[i:j]根据上下文转换为a.__getitem__(slice(I, j))或 __setitem__和 
 __delitem__调用 
-> 7）file类被废弃
+7.  file类被废弃
 
 urllib 和 urllib2 的区别
