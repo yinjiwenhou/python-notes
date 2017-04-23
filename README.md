@@ -78,4 +78,4 @@ str对象和bytes对象可以使用.encode() (str -> bytes) or .decode() (bytes 
 __delitem__调用 
 7.  file类被废弃
 
-urllib 和 urllib2 的区别
+##urllib 和 urllib2 的区别
